@@ -1,0 +1,75 @@
+﻿@model Apartments.Apartment
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Apartment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IDApartment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDApartment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Contact)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contact)
+        </dd>
+
+    </dl>
+</div>
+
+<div>
+    <h4>Uploaded Files</h4>
+    <hr />
+    @if (Model.UploadedFiles != null && Model.UploadedFiles.Any())
+    {
+        foreach (var file in Model.UploadedFiles)
+        {
+            <div>
+                <p>File Name: @file.Name</p>
+                <img src="@Url.Action("GetImage", "Apartment", new { id = file.IDUploadedFile })" alt="@file.Name" style="max-width: 200px; max-height: 200px;" />
+            </div>
+            <hr />
+        }
+    }
+    else
+    {
+        <p>No files uploaded.</p>
+    }
+</div>
+
+
+
+
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new {  id = Model.IDApartment  }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
