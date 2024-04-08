@@ -9,7 +9,7 @@ ApartmentManager is a .NET Framework MVC application enabling CRUD operations on
 ### Additional Features
 
 - **Data Validation:** Utilizes annotations for data validation.
-- **MVC Application Explanation:** Provides a detailed explanation of the workings of .NET Framework MVC applications.
+
 
 
 ## Usage
